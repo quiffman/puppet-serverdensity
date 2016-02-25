@@ -1,0 +1,10 @@
+init_config:
+  docker_root: <%= @docker_root %>
+
+<%- if @docker_socket_timeout -%>
+  socket_timeout: <%= @docker_socket_timeout %>
+<%- end -%>
+
+instances:
+  - url: <%= @docker_socket_url %>
+
