@@ -4,8 +4,11 @@ require 'uri'
 # Ruby gems support.
 Puppet::Type.type(:package).provide :sd_pip, :parent => :pip do
 
-  has_feature :installable, :uninstallable, :upgradeable, :versionable
+  has_feature :installable, :uninstallable, :upgradeable, :versionable, :install_options
 
+  def self.pip_cmd
+    return self.cmd
+  end
   def self.cmd
     "/usr/share/python/sd-agent/bin/pip"
   end
